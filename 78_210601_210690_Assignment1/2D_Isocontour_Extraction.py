@@ -64,5 +64,5 @@ writer.SetFileName(output_filename)
 writer.SetInputData(contour_data)
 writer.Write()
 
-# indicator
+# logging
 print(f"Isocontour extraction complete! Output saved to {os.path.basename(output_filename)}")
