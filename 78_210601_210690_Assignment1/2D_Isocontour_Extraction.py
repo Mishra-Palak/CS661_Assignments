@@ -56,7 +56,7 @@ contour_data.SetPoints(points)
 contour_data.SetLines(lines)
 
 # output image
-os.makedirs("Output", exist_ok=True) # create 'Output' folder if it doesn't exist already
+os.makedirs("Output", exist_ok = True) # create 'Output' folder if it doesn't exist already
 output_filename = os.path.join("Output", f"Isabel_Isocontour_{int(isovalue)}.vtp")
 
 writer = vtk.vtkXMLPolyDataWriter()
