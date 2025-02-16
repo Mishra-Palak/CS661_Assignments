@@ -5,7 +5,7 @@ import faulthandler
 
 faulthandler.enable()
 
-DATA_PATH = "D:\iitk\cs661\Assignment_1\Data\Isabel_3D.vti"
+DATA_PATH = os.path.join("Data", "Isabel_3D.vti")
 
 def load_volume_data(file_path):
     reader = vtk.vtkXMLImageDataReader()
