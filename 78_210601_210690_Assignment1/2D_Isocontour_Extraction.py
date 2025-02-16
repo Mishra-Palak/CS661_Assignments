@@ -31,10 +31,11 @@ for i in range(dims[0] - 1):
         
         p = [[i, j], [i+1, j], [i+1, j+1], [i, j+1]]
 
+        # counter-clockwise traversal
         edges = []
         for k in range(4):
             v1, v2 = v[k], v[(k+1) % 4]
-            if (v1 < isovalue and v2 >= isovalue) or (v2 < isovalue and v1 >= isovalue):
+            if (v1 < isovalue and v2 >= isovalue) or (v1 <= isovalue and v2 > isovalue) or (v2 < isovalue and v1 >= isovalue) or (v2 <= isovalue and v1 > isovalue):
                 t = (isovalue - v1) / (v2 - v1)
                 x = p[k][0] + t * (p[(k+1) % 4][0] - p[k][0])
                 y = p[k][1] + t * (p[(k+1) % 4][1] - p[k][1])
