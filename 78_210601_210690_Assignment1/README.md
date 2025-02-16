@@ -19,7 +19,7 @@ Ensure that the working directory is set to the current folder before running th
 Run the script from the command line:
 
 ```bash
-python 2D_Isocontour_Extraction.py
+python sol1.py
 ```
 
 Upon execution, the script will prompt for an **isovalue**:
@@ -58,7 +58,7 @@ Provide a floating-point value in the range **(-1438, 630)** (as specified in th
 ### Example Run
 
 ```bash
-python 2D_Isocontour_Extraction.py
+python sol1.py
 ```
 
 ```plaintext
