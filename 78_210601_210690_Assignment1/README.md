@@ -82,7 +82,7 @@ This Python script uses the Visualization Toolkit (VTK) to perform 3D volume ren
 #### Running the Script
 
 ```sh
-python render_volume.py --phong yes
+python sol2.py --phong yes
 ```
 
 #### Arguments
