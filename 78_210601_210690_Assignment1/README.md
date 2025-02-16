@@ -32,7 +32,7 @@ Provide a floating-point value in the range **(-1438, 630)** (as specified in th
 
 ### Input
 
-- The script reads the dataset from `Isabel_2D.vti`, which is present in the **Input** folder.
+- The script reads the dataset from `Isabel_2D.vti`, which is present in the **Data** folder.
 
 ### Output
 
