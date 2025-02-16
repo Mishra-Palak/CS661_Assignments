@@ -3,7 +3,7 @@ import os
 import vtk
 
 # input information
-input_file = "Data/Isabel_2D.vti"  
+input_file = os.path.join("Data", "Isabel_2D.vti")
 isovalue = float(input("Enter the isovalue: "))
 
 # read the input image
