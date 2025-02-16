@@ -2,7 +2,7 @@
 import os
 import vtk
 
-# Input information - specify the input file path and get the isovalue from the user
+# Input information
 input_file = os.path.join("Data", "Isabel_2D.vti")
 isovalue = float(input("Enter the isovalue: "))
 
@@ -11,7 +11,6 @@ reader = vtk.vtkXMLImageDataReader()
 reader.SetFileName(input_file)
 reader.Update()
 
-# Extract the image data and its dimensions
 image_data = reader.GetOutput()
 dims = image_data.GetDimensions()
 
@@ -23,7 +22,7 @@ lines = vtk.vtkCellArray()
 point_index = 0
 z_index = 25  # Fixed z-index slice for 2D contour extraction
 
-# Iterate over each cell in the 2D slice of the volume
+# Marching Squares Algorithm
 for i in range(dims[0] - 1):
     for j in range(dims[1] - 1):
         # Get scalar values at the four corners of the cell
@@ -52,12 +51,10 @@ for i in range(dims[0] - 1):
             p1_id = point_index
             p2_id = point_index + 1
 
-            # Insert the intersection points into vtkPoints
             points.InsertNextPoint(edges[0][0], edges[0][1], z_index)
             points.InsertNextPoint(edges[1][0], edges[1][1], z_index)
             point_index += 2
 
-            # Create a vtkLine and add it to vtkCellArray
             line = vtk.vtkLine()
             line.GetPointIds().SetId(0, p1_id)
             line.GetPointIds().SetId(1, p2_id)
@@ -67,11 +64,10 @@ for i in range(dims[0] - 1):
 contour_data.SetPoints(points)
 contour_data.SetLines(lines)
 
-# Output information - create the 'Output' directory if it doesn't exist
+# Output information
 os.makedirs("Output", exist_ok=True)
 output_filename = os.path.join("Output", f"Isabel_Isocontour_{int(isovalue)}.vtp")
 
-# Write the isocontour to a VTP file
 writer = vtk.vtkXMLPolyDataWriter()
 writer.SetFileName(output_filename)
 writer.SetInputData(contour_data)
